@@ -2,7 +2,6 @@ package pl.sda.bank.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import pl.sda.bank.service.AccountService;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -26,7 +25,10 @@ public class Client {
     @JoinColumn(name = "CLI_ADD_ID", referencedColumnName = "ADD_ID")
     public Address address;
 
+    @OneToMany(mappedBy = "client")
+    public List<Account> accountList = new ArrayList<>();
+
     // TODO: 23.02.2022 naprawić listę
     //Could not determine type for: java.util.List, at table: Client, for columns: [org.hibernate.mapping.Column(accountList)]
-    public List<AccountService> accountList = new ArrayList<>();
+
 }

@@ -11,7 +11,6 @@ import pl.sda.bank.model.Address;
 import pl.sda.bank.service.AccountService;
 import pl.sda.bank.service.BankService;
 
-import java.math.BigDecimal;
 import java.util.stream.Collectors;
 
 public class MainTest {
@@ -38,8 +37,16 @@ public class MainTest {
 
         bank.getClientList().get(0).getAccountList().add(new AccountService("1", Currency.valueOf("PLN")));
         bank.getClientList().get(0).getAccountList().add(new AccountService("2", Currency.valueOf("USD")));
-        bank.getClientList().get(0).getAccountList().get(0).addToAccount(BigDecimal.valueOf(1500.00));
+        //bank.getClientList().get(0).getAccountList().get(0).addToAccount(BigDecimal.valueOf(1500.00));
 
+        /*List<Account> accountList = bank.getClientList()
+                .stream()
+                .flatMap(c -> {
+                    return c.getAccountList().stream();
+                })
+                .collect(Collectors.toList());
+         Account temp =  accountList.get(0);
+         */
 
         bank.getClientList().get(1).getAccountList().add(new AccountService("1", Currency.valueOf("PLN")));
         bank.getClientList().get(1).getAccountList().add(new AccountService("2", Currency.valueOf("USD")));
@@ -65,9 +72,9 @@ public class MainTest {
         System.out.println("**************************");
 
 
-      /*  bank.getClientList().get(0).getAccountList().get(0).subtractFromAccount(BigDecimal.valueOf(1500.00));
+        //bank.getClientList().get(0).getAccountList().get(0).subtractFromAccount(BigDecimal.valueOf(1500.00));
 
-        System.out.println(bank.getClientList().stream()
+      /*  System.out.println(bank.getClientList().stream()
                 .flatMap(a -> {
                     return a.getAccountList().stream();
                 })

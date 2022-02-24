@@ -1,6 +1,9 @@
 package pl.sda.bank.model;
 
-import lombok.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 import pl.sda.bank.Currency;
 
 import javax.persistence.*;
@@ -22,8 +25,9 @@ public class Account {
     public Currency currency;
     @Column(name = "ACC_BALANCE")
     public BigDecimal accountBalance = new BigDecimal("0");
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ACC_CLI_ID", referencedColumnName = "CLI_ID")
-    public Client clientList;
+    public Client client;
 }
 

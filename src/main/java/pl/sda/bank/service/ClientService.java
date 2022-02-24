@@ -5,6 +5,7 @@ import pl.sda.bank.Currency;
 import pl.sda.bank.exceptions.AccountNotFoundException;
 import pl.sda.bank.exceptions.BalanceToLowException;
 import pl.sda.bank.exceptions.CashIsNegativeException;
+import pl.sda.bank.model.Account;
 import pl.sda.bank.model.Address;
 import pl.sda.bank.model.Client;
 
@@ -28,7 +29,7 @@ public class ClientService extends Client {
         accountList.add(new AccountService(accountNumber,currency));
     }
 
-    public List<AccountService> removeAccount(AccountService account) throws AccountNotFoundException {
+    public List<Account> removeAccount(AccountService account) throws AccountNotFoundException {
         if (accountList.contains(account)) {
             accountList.remove(account);
         } else {
