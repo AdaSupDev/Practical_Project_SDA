@@ -1,5 +1,6 @@
 package pl.sda.bank.service;
 
+import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 import pl.sda.bank.Currency;
 import pl.sda.bank.exceptions.BalanceToLowException;
@@ -7,6 +8,8 @@ import pl.sda.bank.exceptions.CashIsNegativeException;
 import pl.sda.bank.model.Account;
 
 import java.math.BigDecimal;
+
+@NoArgsConstructor
 
 public class AccountService extends Account {
 
